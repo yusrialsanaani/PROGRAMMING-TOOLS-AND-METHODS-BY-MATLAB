@@ -1,0 +1,83 @@
+%%   PROGRAMMING TOOLS AND METHODS FOR MECHATRONICS ENGINEERS
+%%   Image Processing
+clc;clear all;close all
+%% negative image
+f=imread('I1.tif');
+g=negative(f);
+figure
+subplot(1,2,1),imshow(f),title('Original image')
+subplot(1,2,2),imshow(g),title('Negative image')
+%% The log transformation
+f=imread('I1.tif');
+g=log_tr(f);
+figure
+subplot(1,2,1),imshow(f),title('Original image')
+subplot(1,2,2),imshow(g),title('image with log transformation ')
+%% laplacian filter
+f=imread('I11.jpg'); 
+w=[1 1 1;1 -8 1;1 1 1];   %laplacian mask
+w1=[0 1 0;1 -4 1;0 1 0];  %laplacian mask
+g=laplacian(f,w);
+g1=laplacian(f,w1);
+figure
+subplot(1,3,1),imshow(f), title('Original image')
+subplot(1,3,2),imshow(g), title('Laplacian image')
+subplot(1,3,3),imshow(g1),title('Laplacian image')
+%% power transformation
+% calling power function using c=1, and gamma=0.6,0.4,and 0.3.
+f=imread('I3.tif');
+c=1;
+gama1=0.6;
+gama2=0.4;
+gama3=0.3;
+g1=power_transformation(f,c,gama1);
+g2=power_transformation(f,c,gama2);
+g3=power_transformation(f,c,gama3);
+figure 
+subplot(2,2,1),imshow(f), title('Original image')
+subplot(2,2,2),imshow(g1), title('power transformation with gamma=0.6')
+subplot(2,2,3),imshow(g2), title('power transformation with gamma=0.4')
+subplot(2,2,4),imshow(g3), title('power transformation with gamma=0.3')
+%-------------------------------------------------------------------------
+% calling power function using c=1, and gamma=3,4and 5.
+f=imread('I4.tif');
+c=1;
+gama1=3;
+gama2=4;
+gama3=5;
+g1=power_transformation(f,1,3);
+g2=power_transformation(f,1,4);
+g3=power_transformation(f,1,5);
+figure
+subplot(2,2,1),imshow(f),  title('Original image')
+subplot(2,2,2),imshow(g1), title('power transformation with gamma=3')
+subplot(2,2,3),imshow(g2), title('power transformation with gamma=4')
+subplot(2,2,4),imshow(g3), title('power transformation with gamma=5')
+%% average filter
+f=imread('I7.tif');
+% mask of 3x3 , 5x5, 9x9,15x15, and 35x35 
+w1=ones(3,3);
+w2=ones(5,5);
+w3=ones(9,9);
+w4=ones(15,15);
+w5=ones(35,35);
+%calling average filter
+g1=average_filter(f,w1);
+g2=average_filter(f,w2);
+g3=average_filter(f,w3);
+g4=average_filter(f,w4);
+g5=average_filter(f,w5);
+figure
+subplot(2,3,1),imshow(f) , title('Original image')
+subplot(2,3,2),imshow(g1), title('3x3 averaging filter')
+subplot(2,3,3),imshow(g2), title('5x5 averaging filter')
+subplot(2,3,4),imshow(g3), title('9x9 averaging filter')
+subplot(2,3,5),imshow(g4), title('15x15 averaging filter')
+subplot(2,3,6),imshow(g5), title('35x35 averaging filter')
+%% median and averaging filter
+f=imread('I8.tif');
+[g,y]=median_average(f);
+figure
+subplot(1,3,1),imshow(f), title('Orginal image')
+subplot(1,3,2),imshow(y), title('Averaging filter 3x3')
+subplot(1,3,3),imshow(g), title('Median filter 3x3')

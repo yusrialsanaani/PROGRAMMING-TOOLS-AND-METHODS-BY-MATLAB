@@ -1,0 +1,12 @@
+function[g]=log_tr(f)
+% this function is useful for expanding dark pixles in image while compressing the higher 
+% gray levels of pixles values
+[m,n]=size(f);
+f=im2double(f);           %convert the data type of the image into double 
+c=2;
+for i=1:m
+    for j=1:n
+        g(i,j)=c*log(1+f(i,j));
+    end
+end
+end

@@ -1,0 +1,44 @@
+%%  PROGRAMMING TOOLS AND METHODS FOR MECHATRONICS ENGINEERS
+%   HW#6 :Done by Yusri Al-Sanaani
+clc;clear all;close all
+clc;clear all;close all
+
+y=[0.109900000000000,0.109900000000000,0.290600000000000,0.290600000000000,0.109900000000000,0.109900000000000,0.285700000000000,0.285700000000000,0.168500000000000,0.168500000000000,0.266200000000000,0.266200000000000,0.188000000000000,0.188000000000000,0.227100000000000,0.227100000000000,0.207600000000000,0.207600000000000,0.183200000000000,0.183200000000000];
+f=[7.25520000000000;7.25520000000000;-4.92060000000000;-4.92060000000000;6.29790000000000;6.29790000000000;-3.92920000000000;-3.92920000000000;4.77900000000000;4.77900000000000;-2.17580000000000;-2.17580000000000;2.62520000000000;2.62520000000000;0.100100000000000;0.100100000000000;0.236900000000000;0.236900000000000;2.29300000000000;2.29300000000000];
+x=[5.76070000000000;5.76070000000000;-3.42120000000000;-3.42120000000000;4.83760000000000;4.83760000000000;-2.68860000000000;-2.68860000000000;3.68010000000000;3.68010000000000;-1.51160000000000;-1.51160000000000;2.04400000000000;2.04400000000000;0.300400000000000;0.300400000000000;0.393200000000000;0.39320000];
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A=[x.^2,3*x,y'];
+b=f; 
+
+%X=inv(A'*A)*A'*b;        %  apply Least Square Error equation to fit data
+X=(A'*A)\(A'*b); 
+T=X(1)*x.^2+X(2)*x+X(3)*y';      % fitted result
+dx=linspace(-1,1,500);   %  generates n points linearly spaced between 
+dy=linspace(-2,2,500); %  generates n points linearly spaced between
+[x1,y1]=meshgrid(dx,dy);
+T1=X(1)*x1.^2+X(2)*x1+X(3)*y1';      % fitted result
+mesh(y1,x1,T1)
+hidden off    % turns off hidden line removal for the current graph.
+axis tight;  % setting the axis limits to the range of the data.
+hold on      % to retain the current plot and certain axes properties  
+             % so that subsequent graphing commands add to the existing graph
+plot3(y,x,f,'o','MarkerSize',10,'MarkerFaceColor','r') %Plot lines and points in 3-D space.
+stem3(y,x,f,'fill')
+hidden off
+title('fitting data using least square error')
+xlabel('\alpha (rad)'),ylabel('\omega (rad/s)'),zlabel('Torque (Newton*meter)')
+legend('Fitted Line','Data Points')
+grid on
+RMSE = sqrt(mean((f - T).^2));  % Root Mean Squared Error
+fprintf('-----------------------------------------------------------\n')
+b=[X(1) X(2) X(3)];
+fprintf('       a        b        c \n')
+disp(b)
+fprintf('-----------------------------------------------------------\n')
+fprintf(' RMSE = %2.5f \n',RMSE)
+fprintf('-----------------------------------------------------------\n')
+xp=pinv(A)*f;
+b=[xp(1) xp(2) xp(3)];
+fprintf('       a        b        c \n')
+disp(b)
+fprintf('-----------------------------------------------------------\n')

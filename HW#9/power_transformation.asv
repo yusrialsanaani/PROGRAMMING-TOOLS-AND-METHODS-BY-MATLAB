@@ -1,0 +1,19 @@
+function [g]=power_transformation(f,c,h)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% power transforamtion is a function used for enhancement  an image using
+% power technique, the inputs for this function are
+%       f      the image required to enhance
+%       c      constant multiplier of the power law
+%       h      the power parameter
+% the output is the image after enhancement.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[m,n]=size(f);
+f=im2double(f); % convert the data type of the image into double
+g=zeros(m,n);
+for i=1:m
+    for j=1:n
+        g(i,j)=c*(f(i,j))^h;
+    end
+end
+ g=im2uint8(g); % convert the type of the image data to integer
+end
