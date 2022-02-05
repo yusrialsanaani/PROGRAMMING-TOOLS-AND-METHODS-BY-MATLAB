@@ -1,4 +1,4 @@
-# PROGRAMMING-TOOLS-AND-METHODS-BY-MATLAB
+# PROGRAMMING TOOLS AND METHODS BY MATLAB
 This Resp contains the solutions for different assignments and projects for PROGRAMMING TOOLS AND METHODS FOR MECHATRONICS ENGINEERS.
 - HW#1: 
   - 2nd order Runge_kutta Method(polygon method)
@@ -16,4 +16,7 @@ This Resp contains the solutions for different assignments and projects for PROG
   - Part 1 - Solution of non-square systems by using Least Square Error Method to fit data.
   - Part 2 - Solution of underconstrained system by using minimum length method.
 - HW#7 : SVD to solve overconstrained &/or underconstrained systems
-- HW#7 : Image Processing
+- HW#8 : Compute the required joint control torques and tip trajectory
+- HW#9 : Image Processing
+- GUI_EXample: Simple GUI for some Image Processing techniques
+- DSP: Digital Signal Processing Example
