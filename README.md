@@ -1,5 +1,5 @@
 # PROGRAMMING TOOLS AND METHODS BY MATLAB
-This Resp contains the solutions for different assignments and projects for PROGRAMMING TOOLS AND METHODS FOR MECHATRONICS ENGINEERS.
+This Repo contains the solutions for different assignments and projects for PROGRAMMING TOOLS AND METHODS FOR MECHATRONICS ENGINEERS Course.
 - HW#1: 
   - 2nd order Runge_kutta Method(polygon method)
   - 3nd order Runge_kutta Method
