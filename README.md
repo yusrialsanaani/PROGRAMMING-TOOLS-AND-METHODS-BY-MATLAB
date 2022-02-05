@@ -13,5 +13,7 @@ This Resp contains the solutions for different assignments and projects for PROG
 
 - HW#5 : A program used to solve PDE-heat equation using ADI method
 - HW#6: 
-  - Part#1 Solution of non-square systems by using Least Square Error Method to fit data.
-  - Part#2 Solution of underconstrained system by using minimum length method
+  - Part 1 - Solution of non-square systems by using Least Square Error Method to fit data.
+  - Part 2 - Solution of underconstrained system by using minimum length method.
+- HW#7 : SVD to solve overconstrained &/or underconstrained systems
+- HW#7 : Image Processing
